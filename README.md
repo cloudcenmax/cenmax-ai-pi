@@ -14,7 +14,7 @@ Live qualification passed against Pi 0.73.1 on Linux ARM64 using the real packag
 
 ## Install and connect
 
-The npm package is `@cenmax/pi-oauth`. Once version 0.1.1 is available on npm, install it through Pi:
+Install the published [`@cenmax/pi-oauth@0.1.1`](https://www.npmjs.com/package/@cenmax/pi-oauth/v/0.1.1) package through Pi:
 
 ```sh
 pi install npm:@cenmax/pi-oauth@0.1.1
