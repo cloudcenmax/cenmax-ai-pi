@@ -1,0 +1,35 @@
+name: Publish npm
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+  id-token: write
+concurrency:
+  group: npm-publish
+  cancel-in-progress: false
+jobs:
+  publish:
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    environment: npm
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '24'
+          registry-url: https://registry.npmjs.org
+      - run: npm install --global npm@11.16.0 --ignore-scripts --no-audit --no-fund
+      - run: npm test
+      - name: Verify release metadata
+        run: |
+          node --input-type=module -e '
+            import fs from "node:fs";
+            const p=JSON.parse(fs.readFileSync("package.json","utf8"));
+            if(process.env.GITHUB_REF_NAME!=="v"+p.version || !p.name.startsWith("@cenmax/") || p.private || p.publishConfig?.access!=="public") process.exit(1);
+            if(["preinstall","install","postinstall","prepare","prepublishOnly","prepack","postpack","publish","postpublish"].some(k=>p.scripts?.[k])) process.exit(1);
+          '
+      - run: npm pack --dry-run --json
+      - run: npm publish --provenance --access public

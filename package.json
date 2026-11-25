@@ -1,6 +1,6 @@
 {
-  "name": "@cenmax-ai/pi-oauth",
-  "version": "0.1.0",
+  "name": "@cenmax/pi-oauth",
+  "version": "0.1.1",
   "description": "Cenmax AI subscription OAuth provider for Pi",
   "keywords": [
     "pi-package",

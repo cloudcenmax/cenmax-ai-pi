@@ -14,12 +14,21 @@ Live qualification passed against Pi 0.73.1 on Linux ARM64 using the real packag
 
 ## Install and connect
 
-Download the [reviewed release package](https://github.com/cloudcenmax/cenmax-ai-pi/releases/tag/v0.1.0) into a permanent directory. It contains the integration, not the host harness:
+The npm package is `@cenmax/pi-oauth`. Once version 0.1.1 is available on npm, install it through Pi:
+
+```sh
+pi install npm:@cenmax/pi-oauth@0.1.1
+pi
+```
+
+The GitHub release package is an alternative to npm.
+
+Download the [reviewed release package](https://github.com/cloudcenmax/cenmax-ai-pi/releases/tag/v0.1.1) into a permanent directory. It contains the integration, not the host harness:
 
 ```sh
 mkdir cenmax-ai-pi
-curl --fail --location --output cenmax-ai-pi-oauth-0.1.0.tgz https://github.com/cloudcenmax/cenmax-ai-pi/releases/download/v0.1.0/cenmax-ai-pi-oauth-0.1.0.tgz
-tar -xzf cenmax-ai-pi-oauth-0.1.0.tgz --strip-components=1 -C cenmax-ai-pi
+curl --fail --location --output cenmax-pi-oauth-0.1.1.tgz https://github.com/cloudcenmax/cenmax-ai-pi/releases/download/v0.1.1/cenmax-pi-oauth-0.1.1.tgz
+tar -xzf cenmax-pi-oauth-0.1.1.tgz --strip-components=1 -C cenmax-ai-pi
 ```
 
 Register the extracted directory with the installed Pi host using `pi install /absolute/path/to/cenmax-ai-pi`, then start `pi`. From a source checkout, run the tests before registering it:
