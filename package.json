@@ -1,0 +1,47 @@
+{
+  "name": "@cenmax-ai/pi-oauth",
+  "version": "0.1.0",
+  "description": "Cenmax AI subscription OAuth provider for Pi",
+  "keywords": [
+    "pi-package",
+    "cenmax-ai",
+    "oauth"
+  ],
+  "type": "module",
+  "license": "MIT",
+  "files": [
+    "index.mjs",
+    "src",
+    "README.md",
+    "QUALIFICATION.md",
+    "LICENSE",
+    "SECURITY.md"
+  ],
+  "pi": {
+    "extensions": [
+      "./index.mjs"
+    ]
+  },
+  "scripts": {
+    "test": "node --test test/*.test.mjs"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "peerDependencies": {
+    "@mariozechner/pi-coding-agent": "0.73.1",
+    "@mariozechner/pi-ai": "0.73.1"
+  },
+  "author": "Cenmax AI",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cloudcenmax/cenmax-ai-pi.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cloudcenmax/cenmax-ai-pi/issues"
+  },
+  "homepage": "https://github.com/cloudcenmax/cenmax-ai-pi#readme"
+}

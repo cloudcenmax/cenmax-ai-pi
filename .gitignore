@@ -1,0 +1,16 @@
+node_modules/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+*.tgz
+*.whl
+*.egg-info/
+.DS_Store
+.env
+.env.*
+auth.json
+credentials.json
+*.log
+coverage/
